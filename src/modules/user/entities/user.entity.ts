@@ -1,17 +1,13 @@
+import { UserRole } from "src/constants/enum.constants";
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
-export enum UserRole {
-    ADMIN = 'admin',
-    USER = 'user',
-    GHOST = 'ghost'
-}
 
 @Entity()
 export class User {
 
 
     @PrimaryGeneratedColumn('uuid')
-    id: number;
+    id: string;
 
     @Column()
     name: string;
@@ -26,7 +22,7 @@ export class User {
     @CreateDateColumn()
     createdAt: Date;
 
-    @UpdateDateColumn({ default: new Date() })
+    @UpdateDateColumn()
     updatedAt: Date;
 
 }
